@@ -1,0 +1,122 @@
+SCRUM DOCUMENTATION FOR THE pg_FSD_PhaseOne final project
+
+Product Vision: 
+
+LockedMe.com shall be a first project in line with the companies objective of digitizing all 
+products. 
+
+Product Goal: 
+
+The goal of the produt at this point is to prove the concept and assist in budget approval for 
+goal of digitization of all of the companies products. The product will represent the proof of concept and first effort
+in the process of digitization of the companies products. LockedMe.com, the product, shall be implemented as a prototype
+for the stated purposes.
+
+	==============================================
+	Product backlog and prioritization
+	==============================================
+	Specifications document
+	Project Plan - number and duration of required sprints, etc.
+	15 days - at least 3 sprints 
+	Github Link to project source code
+	document describing Java concepts used in the project including data structures for sorting and searching
+
+User Stories:
+	As product owner i would like to see the application opern with a welcome screen, displaying:
+	the Application name ( LockedMe.com ) and developer details.
+	
+	As a user of the system I would like to see the welcome screen displaying user interface directions 
+	on application start.
+	
+	as the the product owner and ownwer of the vision of the application i would like the welcome 
+	screen to provide high level menu and/or action items for user selection as well as lower level sub menu screen
+	selection options to provide additional functions selectable by the user.
+	
+	
+	as the product owner i would like to provide top level option to "all files display" selection and display 
+	of a list of files in the directory.
+	as a user of the system i need to be able select an option retrieve a list of all the files in the dirctory.
+	as the product owner i would like to provide top level option to exit the application.
+		
+	as the product owner i would like to group user features in a sub menu on the main menu for businses operations
+		as a user of the syste i need to be able to select an option to create a new file specified by me into the 
+		file directory
+		as a user of the system i need to ba able to select an option to delete an existing file specified by me
+		from the file directory.
+		as an administrator of the system i need to be able to search for and display a file specified by me
+	
+	
+Design driven requirements:
+	User interface subsystem
+		User input components
+			user prompt display 
+			user data collection
+			
+		User Display component
+			welcome screen display
+			sub screen  display
+		input validation and error handling
+
+	File/Directory Subsystem
+		directory listing acquisition and sorting
+		file selection and validation
+		file creation 
+		file deletion
+		error detection and response
+	
+	easy and wholly complete items will be prioritized for the first sprint. additional items will 
+	be split according to function and scale among the total number of sprints.
+	==============================================
+	Project Planning
+	==============================================
+	The project will be implmented in 3 sprints, 5 days each.
+	each sprint will be planned independently according 
+	to regular SCRUM practices. product will be developed in 
+	3 potientially deliverable increments however featues may
+	be few in the initial sprints.
+	
+	==============================================
+	Sprint Planning
+	==============================================
+	
+	Sprint #1
+	==============================================
+	Incremental SRS Document - Requirments Documentaion
+	Incremental Design Specifications 
+	GitHub repository and link specification
+	Minimal User Interface component 
+		welcome screen display ( top level ) 
+		user option selection
+	Minimal File/Directory subsystem
+		directory listing acquisition and sorting
+	User interface directions/instructions ( incremental or complete with indication of incomplete/unavailable
+	options.
+	feature - list all files in directory on top level ( welcome screen ) 
+	feature - exit application from top level ( welcome screen ) 
+	
+	
+	
+	Sprint #2
+	==============================================
+	Incremental SRS Document - Requirments Documentaion
+	Incremental Design Specifications 
+	User Interface increments
+		subscreens
+		file specification input validation and acceptance
+	File Subsystem increments	
+		search single file/directory listing
+	Feature - business operations sub menu screen
+	feature - select and search single file
+	
+	
+	Sprint #3
+	==============================================
+	Incremental SRS Document - Requirments Documentaion
+	Incremental Design Specifications 
+	File System incremental
+		file creation
+		file selecttion and deletion
+	feature - add file to directory
+	feature - remove file from directory
+	verify, validate, and complete robustness of the application including all error conditions
+	and considerations.

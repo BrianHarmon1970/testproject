@@ -1,0 +1,22 @@
+Screenshots 1-12 found in file - PG_FSD_PHASEONE_SCREENSHOTS.png
+
+1. Initial welcom screen
+2. option '1. Directory List", selected and executed
+3. welcome screen restarted and prepared to select option 2. Business Ops, 
+	which will launch the sub-menu
+4. The initial Business Operations sub-menu
+5. Business operations sub-menu option 1. Create file selected with the application
+	prompting the user to enter the new file name.
+6. continued from plate 5, user entry 'TEST2.dat' and new file creation executed.
+7. option 3. Find File executed to verify the creation of TEST2.dat
+8  option 3. selected to show the file TEST.dat, option 2. Delete File selected to 
+   remove it, and option 3. Find file selected again to verify that it was successfully
+   removed.
+9. returning to Main Menu ( welcome screen ) 
+10. Back to the main menu.
+11. option 3. Exit - selected and executed on the main menu.
+12. invalid non-integer selection on the main menu - showing the application ignoring and 
+	re-prompting to accept valid input.
+13. displaying invalid input as well as out of range integer value followed by a successfully
+	exit from the program.
+	

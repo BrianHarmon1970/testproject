@@ -1,0 +1,145 @@
+=====================================================================================================================
+JAVA CORE CONCEPTS used in the LockedMe.com Directory maintenance application
+
+Object Oriented Programming
+	encapsulation
+	polymorphism
+	aggregation
+	constructor methods
+	access and control methods
+
+File I/O 
+Basic Datatypes
+Containers and iterators
+Program control flow - branching and functions 
+Exceptions/Exception handling
+=====================================================================================================================
+
+
+Fundamental design consideration and outline in a small class library
+
+================================== USER INTERFACE COMPONENTS ========================================================
+=====================================================================================================================
+UI_ActionElement provides the abstroct basis for the specific implementations of ActionItems invoked in response
+to user menu input selection.
+=====================================================================================================================
+abstract class UI_ActionElement
+	private String ActionDescription = "" ;
+	UI_ActionElement( String description ) 
+	void SetDescription( String str ) 
+	String getActionDescription() 
+	abstract boolean Action() ;
+
+=====================================================================================================================
+THe UI_Input encapsulates the basic Jave scanner input device and wraps it with specific input verification and 
+validation and error condition handling to provide well mannered, robust responses to user error.
+=====================================================================================================================
+class UI_Input
+	Scanner scanner = new Scanner( System.in ) ;
+	String input_prompt  ;
+	int promptInteger( String prompt )  
+	int getInt() 
+	String promptString( String prompt )
+
+
+=====================================================================================================================
+the SRS calls for the implemntation, display and functions of a set of option menu screens.
+the UI_Screen class implments and handles this ability on a basic system level. The descriptive 
+header and subheader may be provided on a per screen basis. the class handles the display of these
+as well as lising and collectin user input for the varied menu options implmented as ActionItems.
+=====================================================================================================================
+class UI_Screen extends UI_ActionElement
+
+	String ScreenHeader ;
+	String SubHead ;
+	ArrayList<UI_ActionElement> ElementList ;
+	UI_Input user_input ;
+	UI_Screen parentScreen = null ;
+	public UI_Screen(String header, String shead )
+	public UI_Screen( String header, String shead, String actionDescription ) {
+	public void addActionItem( UI_ActionElement e ) 
+	void Display() 
+	boolean SelectItem( int itemNumber ) 
+	boolean Action()
+	void start( UI_Input uin ) 
+
+=======================================================================================================================
+There are six menu options specified for the project - 5 ActionItems are indicated below that implement 
+access to these
+features from the subsystem parts ( the Exit action is used in both the main and sub menus. ).
+
+in general the action item is part of an aggregate included in the UI_Screen component for menu option response.
+the UI_Screen component itself is implemented as an action item in order to facilitate sub-menu feature.
+======================================================================================================================
+class ActionFindFile extends UI_ActionElement
+	ActionFindFile( String description ) 
+	boolean Action() 
+
+class ActionDeleteFile extends UI_ActionElement
+	ActionDeleteFile( String description ) 
+	boolean Action() 
+
+class ActionDirectoryList extends UI_ActionElement 
+	fileDirectory dirList ;
+	ActionDirectoryList( String description ) 
+	boolean Action() 
+
+class ActionNewFile extends UI_ActionElement
+	ActionNewFile( String description ) 
+	boolean Action()
+
+class ActionExit extends UI_ActionElement
+	ActionExit( String description ) 
+	boolean Action() 
+
+=====================================================================================================================
+The UserInterface class aggregates the main menu and sub-menus and associates appropriate descriptive labels and 
+action itmes to process the menu selection responses from the user. the main process of the application exists 
+within this class, program starts and ends here while it hands off the processing to  the main UI_Screen element 
+which may intern call a specified sub-menu on request from the user as a specific action item. Menu processing ceases
+when a user selects an associated exit action that returns a response to the menu process that the user has requested 
+termination of the present level of execution. in the case of a sub menu it will return control to the parent UI_Screen.
+in the case of the main menu UI_Screen it will simply stop processing and return control back to UserInterface which will 
+in turn exit the application with an indication that the program has been exited.
+=====================================================================================================================
+public class UserInterface 
+	UI_Screen ui_screen  ;
+	UI_Input ui_input ;
+	public static void main( String[] args ) 
+
+
+=====================================================================================================================
+FILE SUBSYSTEM 
+
+A single object created for the purpose of managint the lower details of file processing for this applicaiton as specified,
+fileDirectory provides a user with a list of files  as recorded in a single system directory and access methods providing the
+ability to search for a file and retrive its File object or to simply indicate whether the file exists within the systemd
+directory or not. With access to the File object for the purposes of this application, delietion is available through 
+this means. A method for the creation of a new file is also provided which simply requires the user to provide a valid 
+file name for the creation within the system directory. The full array may also be provied in order for the using component
+to enumerate through the entire directory listing in order, disk order is preserved in this list providing order for the
+applicaitons requirment to produce a sorted directory list. finallly case sensitivity is selectable by one of two methods -
+the first method takes no parameters and assumes that the user assumes to assert case sensitivity. the second method requires 
+a boolean to indicate whether case sensitivity should be asserted - true, or ignored - false. The default is case sensitivity 
+ignored.
+=====================================================================================================================
+public class fileDirectory //extends ArrayList<File>
+	ArrayList<File> directory_list = new ArrayList<File>() ;
+	String RootDir = "." ;
+	boolean case_sensitive = false ;
+	public void setCaseSensitive( ) { setCaseSensitive( true ) ; } 
+	public void setCaseSensitive( boolean sense  ) 
+	public void LoadDirectoryList( ) 
+	void OpenDataDirectory() 
+	int getIndex( String filename )
+	boolean findFile( String filename )
+	File getFile( String filename )
+	void newFile( String filename ) 
+	
+	
+
+
+	
+
+
+	
